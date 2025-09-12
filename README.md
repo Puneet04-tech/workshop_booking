@@ -5,13 +5,17 @@
 This website is for coordinators to book workshops. They can book workshops based on instructor posts or propose workshop dates based on their convenience.
 
 ## Before Enhancement
-![Before Screenshot - Original Design](docs/screenshots/before-homepage.png)
-![Before Screenshot - Workshop Details](docs/screenshots/before-workshop-details.png)
+![Before Screenshot - Login_page](docs/screenshots/before_login_page.jpg)
+![Before Screenshot - Workshop Details](docs/screenshots/before_filter_page.jpg)
+![Before Screenshot - Registration_page_1](docs/screenshots/before_registration_page_1.jpg)
+![Before Screenshot - Registration_page_2](docs/screenshots/before_registration_page_2.jpg)
 
 ## After Enhancement  
-![After Screenshot - Enhanced Homepage](docs/screenshots/after-homepage.png)
-![After Screenshot - Enhanced Workshop Details](docs/screenshots/after-workshop-details.png)
 
+![After Screenshot - Login Page ](docs/screenshots/after-login-page.png)
+![After Screenshot - Enhanced Workshop Details](docs/screenshots/after-workshop-details.png)
+![After Screenshot - Registration_page_1](docs/screenshots/after-workshop-details.png)
+![After Screenshot - Registration_page_2](docs/screenshots/after-workshop-details.png)
 ## Design Principles & Reasoning
 
 ### 1. What design principles guided your improvements?
