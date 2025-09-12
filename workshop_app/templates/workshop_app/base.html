@@ -3,32 +3,38 @@
 {% load static %}
 {% load custom_filters %}
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=yes, maximum-scale=5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>
         {% block title %}
             HomePage
         {% endblock %}
     </title>
 
-    <script src="{% static 'workshop_app/js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'workshop_app/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'workshop_app/js/popper.min.js' %}"></script>
-    <script src="{% static 'workshop_app/js/toastr.min.js' %}"></script>
+    <!-- jQuery and Dependencies from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-
-    {% block extra-dependencies %}
+    {% block extra_dependencies %}
     {% endblock %}
 
-    <link rel="stylesheet" href="{% static 'workshop_app/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'workshop_app/css/toastr.min.css' %}">
+    <!-- CSS Dependencies from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'workshop_app/css/base.css' %}" type="text/css"/>
-    <link rel="stylesheet" href="{% static 'workshop_app/css/font-awesome.css' %}" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    
+    <!-- Custom CSS - Load Last -->
+    <link rel="stylesheet" href="{% static 'workshop_app/css/base.css' %}?v=20250910153200" type="text/css"/>
 
-    {% block extra-custom-scripts %}
+    {% block extra_custom_scripts %}
     {% endblock %}
 
 </head>
@@ -56,6 +62,9 @@
                     <a class="nav-link text-white" href="{% url 'statistics_app:public' %}">
                         Workshop Statistics
                     </a>
+                </li>
+                <li>
+                     <img src="{% static 'workshop_app/img/fossee-logo.svg' %}" alt="FOSSEE Logo" class="fossee-logo">
                 </li>
             </ul>
             {% if user.is_authenticated %}

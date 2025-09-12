@@ -1,33 +1,139 @@
 {% extends 'workshop_app/base.html' %}
+{% load static %}
 
 {% block title %}
     Login
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+<style>
+/* IIT Bombay Login Overrides */
+body {
+    color: #000000 !important;
+}
+
+.container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: calc(100vh - 140px) !important;
+}
+
+.container .row {
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.card {
+    background: rgba(253, 223, 164, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 5px solid rgba(249, 23, 23, 1) !important;
+    border-radius: 20px !important;
+    box-shadow: 10px 25px 50px rgba(0, 0, 0, 0.15) !important;
+    color: #000000 !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 2rem !important;
+}
+
+.card-header h5 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+}
+
+.card-body {
+    padding: 3rem !important;
+    color: #000000 !important;
+}
+
+.form-group {
+    margin-bottom: 2rem !important;
+}
+
+.card-footer {
+    background: rgba(248, 249, 250, 0.9) !important;
+  
+    color: #000000 !important;
+}
+
+.form-group label {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(30, 60, 114, 0.2) !important;
+    border-radius: 12px !important;
+    color: #000000 !important;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: #1e3c72 !important;
+    color: #000000 !important;
+}
+
+.card-footer a {
+    color: #1e3c72 !important;
+    font-weight: 600 !important;
+}
+
+.alert {
+    color: #000000 !important;
+}
+
+.btn-primary {
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3) !important;
+}
+
+.fossee-logo {
+    height: 60px !important;
+    width: auto !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
+}
+</style>
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6 col-md-offset-6">
-                <div class="card">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        
+                        <h5 class="mb-0">Sign in</h5>
+                    </div>
                     <div class="card-body">
-                        <form class="px-3 py-3" method="post">
+                        <form method="post" novalidate>
                         {% csrf_token %}
                         {% if form.errors %}
                             {% for field in form %}
                                 {% for error in field.errors %}
-                                    <div class="alert alert-dismissible alert-danger">
-                                        <button type="button" class="close" data-dismiss="alert">
-                                            <i class="fa fa-close"></i>
-                                        </button>
+                                    <div class="alert alert-danger" role="alert">
                                         <strong>{{ error|escape }}</strong>
                                     </div>
                                 {% endfor %}
                             {% endfor %}
                             {% for error in form.non_field_errors %}
-                                <div class="alert alert-dismissible alert-danger">
-                                    <button type="button" class="close" data-dismiss="alert">
-                                        <i class="fa fa-close"></i>
-                                    </button>
+                                <div class="alert alert-danger" role="alert">
                                     <strong>{{ error|escape }}</strong>
                                 </div>
                             {% endfor %}
@@ -40,13 +146,16 @@
                           <label for="id_password">Password</label>
                           {{ form.password }}
                         </div>
-                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
                         </form>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'workshop_app:register' %}">New around here? Sign up</a>
-                        <a class="dropdown-item" href="{% url 'password_reset' %}">Forgot password?</a>
                     </div>
-                </div>  
+                    <div class="card-footer bg-white">
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'workshop_app:register' %}">New here? Sign up</a>
+                            <a href="{% url 'password_reset' %}">Forgot password?</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

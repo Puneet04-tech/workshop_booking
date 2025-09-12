@@ -1,0 +1,224 @@
+{% extends 'workshop_app/base.html' %}
+
+{% block title %}
+    View Workshop Details
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="h2 mb-3">Workshop Details</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'workshop_app:index' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Workshop Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Workshop Information Card -->
+        <div class="workshop-card">
+            <div class="workshop-card-header">
+                <h2 class="h4 mb-0">
+                    <i class="material-icons" style="vertical-align: middle; margin-right: 8px;">event</i>
+                    {{ workshop.workshop_type }}
+                </h2>
+            </div>
+            <div class="workshop-card-body">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Workshop Details Grid -->
+                        <div class="workshop-detail-grid">
+                            <div class="detail-label">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">category</i>
+                                Workshop Type
+                            </div>
+                            <div class="detail-value">
+                                <a href="{% url 'workshop_app:workshop_type_details' workshop.workshop_type_id %}" 
+                                   class="text-decoration-none font-weight-medium">
+                                    {{ workshop.workshop_type }}
+                                </a>
+                            </div>
+
+                            <div class="detail-label">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">today</i>
+                                Date
+                            </div>
+                            <div class="detail-value">
+                                <span class="font-weight-medium">{{ workshop.date|date:"F d, Y" }}</span>
+                                <small class="text-muted ml-2">({{ workshop.date|date:"l" }})</small>
+                            </div>
+
+                            <div class="detail-label">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">person</i>
+                                Coordinator
+                            </div>
+                            <div class="detail-value">
+                                <span class="font-weight-medium">{{ workshop.coordinator.get_full_name|title }}</span>
+                            </div>
+
+                            <div class="detail-label">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">info</i>
+                                Status
+                            </div>
+                            <div class="detail-value">
+                                {% if workshop.status %}
+                                    <span class="status-badge success">
+                                        {{ workshop.get_status }}
+                                    </span>
+                                {% else %}
+                                    <span class="status-badge warning">
+                                        {{ workshop.get_status }}
+                                    </span>
+                                {% endif %}
+                            </div>
+
+                            {% if workshop.status %}
+                            <div class="detail-label">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">school</i>
+                                Instructor
+                            </div>
+                            <div class="detail-value">
+                                <span class="font-weight-medium">{{ workshop.instructor.get_full_name|title }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions Sidebar -->
+                    <div class="col-lg-4">
+                        <div class="bg-light p-3 rounded">
+                            <h5 class="h6 mb-3">Quick Actions</h5>
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'workshop_app:workshop_type_details' workshop.workshop_type_id %}" 
+                                   class="btn btn-outline-primary btn-sm">
+                                    <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 16px;">visibility</i>
+                                    View Workshop Type
+                                </a>
+                                {% if request.user.is_authenticated %}
+                                <a href="{% url 'workshop_app:view_profile' workshop.coordinator.id %}" 
+                                   class="btn btn-outline-secondary btn-sm">
+                                    <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 16px;">person</i>
+                                    View Coordinator Profile
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <!-- Post Comment Form -->
+            {% if request.user.is_authenticated %}
+            <div class="form-enhanced">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex align-items-center mb-3">
+                        <h3 class="h5 mb-0 me-auto">Post a Comment</h3>
+                        {% if request.user.profile.position == 'instructor' %}
+                        <div class="form-check">
+                            {{ form.public }}
+                            <label class="form-check-label" for="{{ form.public.id_for_label }}">
+                                Public Comment
+                            </label>
+                            <small class="form-text text-muted">
+                                Non-public comments are visible only to instructors
+                            </small>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="{{ form.comment.id_for_label }}" class="sr-only">Your Comment</label>
+                        {{ form.comment }}
+                    </div>
+                    
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn-enhanced primary">
+                            <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">send</i>
+                            Post Comment
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <i class="material-icons" style="vertical-align: middle; margin-right: 8px;">info</i>
+                Please <a href="{% url 'workshop_app:login' %}" class="alert-link">login</a> to post comments.
+            </div>
+            {% endif %}
+
+            <!-- Comments List -->
+            <div class="d-flex align-items-center mb-4">
+                <h3 class="h4 mb-0">Comments</h3>
+                <span class="badge bg-secondary ms-2">{{ workshop_comments|length }}</span>
+            </div>
+
+            {% if workshop_comments %}
+                {% for comment in workshop_comments %}
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <a href="{% url 'workshop_app:view_profile' comment.author_id %}" 
+                               class="comment-author">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 18px;">account_circle</i>
+                                {{ comment.author }}
+                            </a>
+                            
+                            {% if not comment.public %}
+                            <span class="badge bg-dark ms-2">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 2px; font-size: 14px;">visibility_off</i>
+                                Hidden
+                            </span>
+                            {% endif %}
+                            
+                            <span class="comment-date ms-auto">
+                                <i class="material-icons" style="vertical-align: middle; margin-right: 4px; font-size: 16px;">schedule</i>
+                                {{ comment.created_date|date:"M d, Y - H:i" }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="mb-0">{{ comment.comment|linebreaks }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="text-center py-5">
+                    <i class="material-icons" style="font-size: 48px; color: #6c757d;">chat_bubble_outline</i>
+                    <p class="text-muted mt-2">No comments yet. Be the first to comment!</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; border-radius: 50%; width: 50px; height: 50px;">
+        <i class="material-icons">keyboard_arrow_up</i>
+    </button>
+
+    <script>
+        // Back to top functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+{% endblock %}

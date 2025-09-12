@@ -5,20 +5,17 @@
 {% endblock %}
 
 {% block header %}
-    <nav class="navbar navbar-default navbar-dark bg-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand text-white" href="/">
-                    FOSSEE Workshops
-                </a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <a class="navbar-brand text-white" href="/">FOSSEE Workshops</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
                 {% if request.user.profile.is_email_verified %}
-                    <li><a href="{% url 'workshop_app:view_profile' %}"><span class="glyphicon glyphicon-user"></span>
-                        Profile</a></li>
-
-                    <li><a href="{% url 'workshop_app:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'workshop_app:view_profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'workshop_app:logout' %}">Logout</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -31,11 +28,9 @@
 
 {% block content %}
     {% if status == '2' %}
-        <div class="container">
-            <div class="jumbotron">
-                <p> Your email is already verified, Click
-                    <a href="{% url 'workshop_app:index' %}">here</a>
-                </p>
+        <div class="container py-5">
+            <div class="alert alert-info" role="alert">
+                Your email is already verified. Click <a href="{% url 'workshop_app:index' %}" class="alert-link">here</a>.
             </div>
         </div>
     {% elif status == '1' %}
@@ -44,17 +39,15 @@
                 location.href = "{% url 'workshop_app:register' %}"
             }, 3000);
         </script>
-        <div class="container">
-            <div class="jumbotron">
-                <p> Your activation has expired please register again</p>
+        <div class="container py-5">
+            <div class="alert alert-warning" role="alert">
+                Your activation has expired, please register again.
             </div>
         </div>
     {% elif status == '0' %}
-        <div class="container">
-            <div class="jumbotron">
-                <p> Your account has been activated. Click
-                    <a href="{% url 'workshop_app:index' %}">here</a>
-                </p>
+        <div class="container py-5">
+            <div class="alert alert-success" role="alert">
+                Your account has been activated. Click <a href="{% url 'workshop_app:index' %}" class="alert-link">here</a>.
             </div>
         </div>
     {% else %}
@@ -64,12 +57,12 @@
             }, 5000);
         </script>
 
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Activation Awaiting</h1>
-                <p>The Activation Link has been sent to your email. The link expires in <strong>24hours</strong> from
-                    the date of registration. You will be logged out automatically
-                </p>
+        <div class="container py-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Activation Awaiting</h4>
+                    <p class="card-text">The activation link has been sent to your email. The link expires in <strong>24 hours</strong> from the date of registration. You will be logged out automatically.</p>
+                </div>
             </div>
         </div>
     {% endif %}
