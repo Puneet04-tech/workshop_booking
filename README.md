@@ -12,10 +12,13 @@ This website is for coordinators to book workshops. They can book workshops base
 
 ## After Enhancement  
 
-![After Screenshot - Login Page ](docs/screenshots/after-login-page.png)
-![After Screenshot - Enhanced Workshop Details](docs/screenshots/after-workshop-details.png)
-![After Screenshot - Registration_page_1](docs/screenshots/after-workshop-details.png)
-![After Screenshot - Registration_page_2](docs/screenshots/after-workshop-details.png)
+![After Screenshot - Login Page ](docs/screenshots/after_login_page.png)
+![After Screenshot - Enhanced Workshop Details](docs/screenshots/after_filter-page.png)
+![After Screenshot - Registration_page_1](docs/screenshots/after_registration_form_1.png)
+![After Screenshot - Registration_page_2](docs/screenshots/after_registration_page_2.png)
+![After Screenshot - footer-1](docs/screenshots/after-footer-1.png)
+![After Screenshot - footer-2](docs/screenshots/after-footer_2.png)
+
 ## Design Principles & Reasoning
 
 ### 1. What design principles guided your improvements?
