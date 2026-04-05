@@ -573,122 +573,204 @@ nav.modern-navbar:hover {
   }
 }
 
-/* Responsive Navbar - Mobile (max-width: 768px) */
+/* Responsive Navbar - Mobile Vertical Sidebar (max-width: 768px) */
 @media (max-width: 768px) {
   body {
-    padding-top: 66px;
+    padding-top: 0 !important;
+    padding-left: 70px !important;
     font-size: 15px;
+    background-attachment: scroll;
   }
 
   nav.navbar,
   nav.modern-navbar {
     position: fixed !important;
+    width: 70px !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    flex-direction: column !important;
+    background: linear-gradient(180deg, #1a1f2e 0%, #242a3e 50%, #1a1f2e 100%) !important;
+    border-right: 3px solid #fbbf24 !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
   .navbar-container {
-    flex-wrap: wrap !important;
-    padding: 0.5rem 0.75rem !important;
-    height: auto !important;
-    gap: 0.5rem !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 1rem 0.4rem !important;
+    gap: 2rem !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    max-width: none !important;
+    margin: 0 !important;
   }
-  
+
   .navbar-brand-wrapper {
     margin-right: 0 !important;
-    flex-basis: auto !important;
-    order: 1;
+    margin-bottom: 1rem !important;
+    flex-shrink: 0 !important;
   }
-  
+
+  .navbar-brand {
+    padding: 0.3rem !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
+
   .brand-text {
-    font-size: 1rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0 !important;
+    display: none !important;
   }
-  
+
   .brand-subtext {
-    font-size: 0.52rem !important;
+    font-size: 0 !important;
+    display: none !important;
+  }
+
+  .navbar-brand i {
+    font-size: 2rem !important;
+    display: block !important;
   }
 
   .navbar-collapse {
     width: 100% !important;
-    flex-basis: 100% !important;
+    flex-direction: column !important;
     margin-left: 0 !important;
-    order: 3;
-    display: none !important;
+    flex: 1 !important;
   }
 
-  .navbar-collapse.show {
-    display: flex !important;
-  }
-  
   .navbar-nav {
     width: 100% !important;
     flex-direction: column !important;
-    gap: 0 !important;
+    gap: 0.5rem !important;
   }
-  
+
   .nav-primary,
   .nav-authenticated,
   .nav-user {
     width: 100% !important;
     flex-direction: column !important;
     margin: 0 !important;
-    gap: 0 !important;
+    gap: 0.5rem !important;
   }
-  
+
+  .nav-item {
+    width: 100% !important;
+  }
+
   .nav-link {
-    padding: 0.65rem 0.8rem !important;
-    font-size: 0.85rem !important;
-    border-radius: 4px !important;
-    margin: 0.2rem 0 !important;
+    width: 100% !important;
+    padding: 0.8rem 0.4rem !important;
+    font-size: 0 !important;
+    border-radius: 8px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    color: #e2e8f0 !important;
+    gap: 0.3rem !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
   }
-  
+
+  .nav-link i {
+    font-size: 1.3rem !important;
+    display: block !important;
+  }
+
   .nav-link span {
-    display: inline-block !important;
-    margin-left: 0.3rem !important;
+    display: none !important;
   }
-  
+
   .nav-link::after {
     display: none !important;
   }
-  
+
+  .nav-link:hover {
+    background: rgba(251, 191, 36, 0.2) !important;
+    color: #fbbf24 !important;
+    transform: scale(1.1) !important;
+  }
+
   .fossee-logo-item {
     border: none !important;
-    padding: 0.5rem 0 !important;
-    margin: 0 !important;
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+    width: 100% !important;
   }
-  
+
   .fossee-logo {
-    max-width: 100px !important;
-    height: 35px !important;
+    max-width: 50px !important;
+    height: 50px !important;
+    border-radius: 8px !important;
   }
-  
+
   .user-profile {
-    width: auto !important;
+    width: 50px !important;
+    padding: 0.6rem 0 !important;
+    border-radius: 8px !important;
     justify-content: center !important;
-    order: 2;
-    padding: 0.5rem 0.8rem !important;
-    margin-left: auto !important;
+    order: 999 !important;
+    margin-left: 0 !important;
+    margin-top: auto !important;
+  }
+
+  .user-name {
+    display: none !important;
+  }
+
+  .avatar-icon {
+    font-size: 1.5rem !important;
+    margin: 0 !important;
   }
 
   .navbar-toggler {
-    order: 2.5;
-    border: 2px solid #fbbf24 !important;
-    padding: 0.35rem 0.5rem !important;
-    margin-left: 0.5rem !important;
+    display: none !important;
   }
-  
+
+  .dropdown-menu {
+    position: fixed !important;
+    left: 75px !important;
+    background: #1a1f2e !important;
+    border: 2px solid #fbbf24 !important;
+    border-radius: 10px !important;
+    min-width: 180px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  }
+
   .card {
     margin: 0.75rem 0 !important;
     padding: 1rem !important;
   }
-  
+
   .btn {
     padding: 0.5rem 1rem !important;
     font-size: 0.9rem !important;
   }
-  
+
   .form-control {
     padding: 0.6rem 0.75rem !important;
     font-size: 0.9rem !important;
+  }
+  
+  .container,
+  .container-fluid {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
 }
 
@@ -699,57 +781,45 @@ nav.modern-navbar:hover {
   }
 
   body {
-    padding-top: 62px;
-    background-attachment: scroll;
+    padding-left: 65px !important;
   }
-  
+
+  nav.navbar,
+  nav.modern-navbar {
+    width: 65px !important;
+  }
+
   .navbar-container {
-    padding: 0.45rem 0.6rem !important;
-    height: auto !important;
-    min-height: 56px !important;
+    padding: 0.8rem 0.35rem !important;
+    gap: 1.5rem !important;
   }
-  
-  .brand-text {
-    font-size: 0.9rem !important;
-    letter-spacing: 0.5px !important;
-  }
-  
-  .brand-subtext {
-    font-size: 0.45rem !important;
-    letter-spacing: 0.5px !important;
-  }
-  
+
   .navbar-brand {
-    padding: 0.3rem 0.4rem !important;
+    width: 48px !important;
+    height: 48px !important;
   }
-  
-  .navbar-brand-wrapper {
-    margin-right: 0 !important;
+
+  .navbar-brand i {
+    font-size: 1.8rem !important;
   }
-  
-  .nav-link span {
-    display: none !important;
-  }
-  
+
   .nav-link {
-    padding: 0.6rem 0.7rem !important;
-    font-size: 0.8rem !important;
+    padding: 0.7rem 0.35rem !important;
   }
 
   .nav-link i {
-    font-size: 0.95rem !important;
+    font-size: 1.2rem !important;
   }
 
   .user-profile {
-    padding: 0.4rem 0.6rem !important;
-    font-size: 0.85rem !important;
+    width: 48px !important;
   }
 
-  .user-name {
-    display: none !important;
+  .avatar-icon {
+    font-size: 1.4rem !important;
   }
 
-  .fossee-logo-item {
+  .navbar-toggler {
     display: none !important;
   }
 
@@ -2062,50 +2132,60 @@ a:focus {
 
 
 /* Responsive Navbar - Extra Small Mobile (max-width: 480px) */
+/* Responsive Navbar - Extra-Small Mobile (max-width: 480px) - Vertical Sidebar */
 @media (max-width: 480px) {
   html {
     font-size: 13px;
   }
 
   body {
-    padding-top: 58px;
+    padding-left: 60px !important;
+    padding-top: 0 !important;
+  }
+
+  nav.navbar,
+  nav.modern-navbar {
+    width: 60px !important;
   }
 
   .navbar-container {
-    padding: 0.4rem 0.5rem !important;
-    min-height: 54px !important;
-  }
-
-  .brand-text {
-    font-size: 0.8rem !important;
-    letter-spacing: 0.3px !important;
-  }
-
-  .brand-subtext {
-    font-size: 0.4rem !important;
-    letter-spacing: 0.2px !important;
+    padding: 0.7rem 0.3rem !important;
+    gap: 1.2rem !important;
   }
 
   .navbar-brand {
-    padding: 0.2rem 0.3rem !important;
+    width: 45px !important;
+    height: 45px !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .navbar-brand i {
+    font-size: 1.6rem !important;
   }
 
   .nav-link {
-    padding: 0.5rem 0.6rem !important;
-    font-size: 0.75rem !important;
+    padding: 0.6rem 0.3rem !important;
   }
 
   .nav-link i {
-    font-size: 0.85rem !important;
+    font-size: 1.1rem !important;
   }
 
   .user-profile {
-    padding: 0.35rem 0.5rem !important;
+    width: 45px !important;
+    padding: 0.5rem 0 !important;
   }
 
-  .navbar-toggler {
-    padding: 0.3rem 0.4rem !important;
-    margin-left: 0.25rem !important;
+  .avatar-icon {
+    font-size: 1.3rem !important;
+  }
+
+  .brand-text {
+    font-size: 0 !important;
+  }
+
+  .brand-subtext {
+    font-size: 0 !important;
   }
 
   h1 {
@@ -2128,6 +2208,23 @@ a:focus {
   .form-control {
     font-size: 0.8rem !important;
     padding: 0.6rem 0.5rem !important;
+  }
+
+  .card {
+    margin: 0.35rem 0 !important;
+    padding: 0.65rem !important;
+  }
+
+  .base-content {
+    padding: 0.7rem 0.4rem !important;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+  }
+}
   }
 
   .card {
