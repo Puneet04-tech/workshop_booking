@@ -174,10 +174,10 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 40% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 70% 10%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 40% 80%, rgba(251, 191, 36, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 70% 10%, rgba(251, 191, 36, 0.12) 0%, transparent 45%);
   pointer-events: none;
   z-index: -1;
   animation: float 25s ease-in-out infinite;
@@ -191,15 +191,20 @@ body::after {
   width: 100%;
   height: 100%;
   background: 
-    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%231e3a8a' opacity='0.05'/%3E%3Ccircle cx='20' cy='30' r='0.5' fill='%232563eb' opacity='0.03'/%3E%3Ccircle cx='80' cy='70' r='0.5' fill='%2322c55e' opacity='0.03'/%3E%3C/svg%3E") repeat;
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23fbbf24' opacity='0.08'/%3E%3Ccircle cx='20' cy='30' r='0.5' fill='%23fbbf24' opacity='0.06'/%3E%3Ccircle cx='80' cy='70' r='0.5' fill='%23fbbf24' opacity='0.07'/%3E%3Ccircle cx='35' cy='65' r='0.8' fill='%23fbbf24' opacity='0.05'/%3E%3C/svg%3E") repeat;
   pointer-events: none;
   z-index: -1;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(120deg); }
-  66% { transform: translateY(10px) rotate(240deg); }
+  33% { transform: translateY(-15px) rotate(120deg); }
+  66% { transform: translateY(15px) rotate(240deg); }
+}
+
+@keyframes goldenGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(251, 191, 36, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(251, 191, 36, 0.6); }
 }
 
 /* ============================================
@@ -593,17 +598,74 @@ nav.modern-navbar:hover {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+    font-size: 15px;
+  }
+
   .navbar-container {
     padding: 0.75rem 1rem !important;
+    height: 65px !important;
   }
   
   .brand-text {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
   }
   
   .brand-subtext {
-    font-size: 0.6rem !important;
+    font-size: 0.55rem !important;
+  }
+  
+  .nav-link span {
+    display: inline-block !important;
+    margin-left: 0.25rem;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 0.7rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .card {
+    margin: 0.75rem 0 !important;
+    padding: 1rem !important;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .form-control {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    padding-top: 65px;
+    background-attachment: scroll;
+  }
+  
+  .navbar-container {
+    padding: 0.6rem 0.75rem !important;
+    height: 60px !important;
+  }
+  
+  .brand-text {
+    font-size: 0.95rem !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .brand-subtext {
+    font-size: 0.5rem !important;
+    letter-spacing: 1px !important;
   }
   
   .nav-link span {
@@ -611,7 +673,47 @@ nav.modern-navbar:hover {
   }
   
   .nav-link {
-    padding: 0.6rem 0.6rem !important;
+    padding: 0.5rem 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .nav-link i {
+    font-size: 0.9rem !important;
+  }
+
+  .navbar-brand {
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  .card {
+    margin: 0.5rem 0 !important;
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    width: 100% !important;
+  }
+
+  .form-control {
+    padding: 0.6rem 0.5rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+  }
+
+  .form-label {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .container {
+    padding: 0 0.75rem !important;
+  }
+
+  .base-content {
+    padding: 1rem 0.5rem !important;
   }
 }
 
@@ -1740,6 +1842,45 @@ a:focus {
   }
 }
 
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 0 1rem 0;
+  }
+
+  .footer .container {
+    padding: 0 0.75rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footer-section {
+    padding: 1rem !important;
+  }
+
+  .footer-section h4 {
+    font-size: 0.95rem;
+  }
+
+  .footer-section p,
+  .footer-section ul li,
+  .footer-section a {
+    font-size: 0.85rem;
+  }
+
+  .footer-social {
+    gap: 0.5rem;
+  }
+
+  .footer-social a {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+}
+
 /* Utility Classes */
 .text-gradient {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
@@ -1840,6 +1981,16 @@ a:focus {
   h3 {
     font-size: 1.5rem;
   }
+
+  .row {
+    margin-right: -0.5rem !important;
+    margin-left: -0.5rem !important;
+  }
+
+  .col {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1858,6 +2009,106 @@ a:focus {
   
   h2 {
     font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .base-content {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .card-body {
+    padding: 0.75rem !important;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .form-control {
+    font-size: 0.9rem !important;
+    padding: 0.7rem 0.6rem !important;
+  }
+
+  .form-label {
+    font-size: 0.85rem !important;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  body {
+    padding-top: 60px;
+  }
+
+  .navbar-container {
+    padding: 0.5rem 0.5rem !important;
+    height: 56px !important;
+  }
+
+  .brand-text {
+    font-size: 0.85rem !important;
+  }
+
+  .brand-subtext {
+    font-size: 0.45rem !important;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.4rem !important;
+  }
+
+  .nav-link i {
+    font-size: 0.8rem !important;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .form-control {
+    font-size: 0.8rem !important;
+    padding: 0.6rem 0.5rem !important;
+  }
+
+  .card {
+    margin: 0.3rem 0 !important;
+    padding: 0.6rem !important;
+  }
+
+  .base-content {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 }
 
