@@ -321,7 +321,7 @@
 
                     <!-- Dynamic form fields -->
                     {% for field in form %}
-                        {% if field.name != '\''captcha'\'' %}
+                        {% if field.name != "captcha" %}
                             <div class="form-group-wrapper {% if form.non_field_errors or field.errors %}error{% endif %}">
                                 <div class="form-group">
                                     {% if field.label %}
@@ -334,9 +334,9 @@
                                     {% endif %}
                                     
                                     <div class="form-control-wrapper {% if field.errors %}error{% endif %}">
-                                        {% if field.field.widget.input_type == '\''checkbox'\'' %}
+                                        {% if field.field.widget.input_type == "checkbox" %}
                                             {{ field }}
-                                        {% elif field.field.widget.input_type == '\''textarea'\'' %}
+                                        {% elif field.field.widget.input_type == "textarea" %}
                                             {{ field|add_class:"form-control" }}
                                         {% else %}
                                             {{ field|add_class:"form-control" }}
@@ -373,7 +373,7 @@
 
                     <div class="register-footer">
                         <p class="footer-text">Already have an account?</p>
-                        <a href="{% url '\''workshop_app:login'\'' %}" class="footer-link">
+                        <a href="{% url "workshop_app:login" %}" class="footer-link">
                             <i class="fas fa-sign-in-alt"></i>
                             Sign In Here
                         </a>
