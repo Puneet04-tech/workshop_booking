@@ -129,10 +129,10 @@ body {
   font-family: var(--font-family-primary);
   line-height: 1.6;
   color: #1e293b;
-  background: linear-gradient(135deg, #f1f5f9 0%, #ecf0f5 25%, #f0fdf4 50%, #fef9e7 75%, #fef5f1 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #2d3748 20%, #334155 40%, #3f4651 60%, #2d3748 80%, #1e293b 100%);
   background-attachment: fixed;
   background-size: 200% 200%;
-  animation: gradientShift 20s ease infinite;
+  animation: gradientShift 30s ease infinite;
   min-height: 100vh;
   margin: 0;
   padding: 0;
