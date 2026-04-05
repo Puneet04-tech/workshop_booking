@@ -2,161 +2,331 @@
 {% load static %}
 
 {% block title %}
-    Login
+    Login - FOSSEE Workshops
 {% endblock %}
 
 {% block content %}
 <style>
-/* IIT Bombay Login Overrides */
-body {
-    color: #000000 !important;
+/* Modern Login Page Styling */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 2rem 1rem;
+    margin-top: 80px;
 }
 
-.container {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: calc(100vh - 140px) !important;
+.login-container {
+    width: 100%;
+    max-width: 450px;
 }
 
-.container .row {
-    width: 100% !important;
-    max-width: 1000px !important;
-    margin: 0 auto !important;
+.login-card {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(30, 58, 138, 0.2), 0 0 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: slideUp 0.4s ease;
 }
 
-.card {
-    background: rgba(250, 230, 189, 0.95) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 5px solid rgba(249, 23, 23, 1) !important;
-    border-radius: 20px !important;
-    box-shadow: 10px 25px 50px rgba(0, 0, 0, 0.15) !important;
-    color: #000000 !important;
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.card-header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
-    color: white !important;
-    text-align: center !important;
-    padding: 2rem !important;
+.login-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-.card-header h5 {
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
-    color: white !important;
+.login-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='white'/%3E%3C/svg%3E") repeat;
 }
 
-.card-body {
-    padding: 3rem !important;
-    color: #000000 !important;
+.login-header h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+.login-header p {
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0 0;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+.login-body {
+    padding: 2.5rem;
 }
 
 .form-group {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.8rem;
 }
 
-.card-footer {
-    background: rgba(248, 249, 250, 0.9) !important;
-  
-    color: #000000 !important;
-}
-
-.form-group label {
-    color: #000000 !important;
-    font-weight: 600 !important;
+.form-label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.95rem;
 }
 
 .form-control {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 2px solid rgba(30, 60, 114, 0.2) !important;
-    border-radius: 12px !important;
-    color: #000000 !important;
-    padding: 1rem !important;
-    font-size: 1rem !important;
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f2937;
+    font-family: var(--font-family-primary);
 }
 
 .form-control:focus {
-    background: rgba(255, 255, 255, 1) !important;
-    border-color: #1e3c72 !important;
-    color: #000000 !important;
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+    transform: translateY(-2px);
 }
 
-.card-footer a {
-    color: #1e3c72 !important;
-    font-weight: 600 !important;
+.form-control::placeholder {
+    color: #9ca3af;
 }
 
-.alert {
-    color: #000000 !important;
+.btn-login {
+    width: 100%;
+    padding: 0.95rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn-primary {
-    padding: 1rem 2rem !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    border-radius: 12px !important;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
-    border: none !important;
-    transition: all 0.3s ease !important;
+.btn-login::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3) !important;
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
 }
 
-.fossee-logo {
-    height: 60px !important;
-    width: auto !important;
-    max-width: 200px !important;
-    object-fit: contain !important;
+.btn-login:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.error-alert {
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.error-alert strong {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.login-footer {
+    padding: 1.8rem;
+    background: rgba(240, 244, 255, 0.5);
+    border-top: 1px solid rgba(229, 231, 235, 0.5);
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-link:hover {
+    color: #1e40af;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.signup-text {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-wrapper {
+        padding: 1rem;
+        min-height: calc(100vh - 70px);
+    }
+    
+    .login-container {
+        max-width: 100%;
+    }
+    
+    .login-header {
+        padding: 2rem 1rem;
+    }
+    
+    .login-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .login-body {
+        padding: 1.5rem;
+    }
+    
+    .footer-links {
+        gap: 0.5rem;
+    }
+    
+    .footer-link {
+        font-size: 0.85rem;
+    }
 }
 </style>
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6 col-xl-5">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-white">
-                        
-                        <h5 class="mb-0">Sign in</h5>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" novalidate>
-                        {% csrf_token %}
-                        {% if form.errors %}
-                            {% for field in form %}
-                                {% for error in field.errors %}
-                                    <div class="alert alert-danger" role="alert">
-                                        <strong>{{ error|escape }}</strong>
-                                    </div>
-                                {% endfor %}
-                            {% endfor %}
-                            {% for error in form.non_field_errors %}
-                                <div class="alert alert-danger" role="alert">
-                                    <strong>{{ error|escape }}</strong>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                        <div class="form-group">
-                          <label for="id_username">Username</label>
-                          {{ form.username }}
+
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Welcome Back</h1>
+                <p>FOSSEE Workshops Portal</p>
+            </div>
+            
+            <div class="login-body">
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="error-alert">
+                                <strong>Error:</strong>
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="error-alert">
+                            <strong>Error:</strong>
+                            {{ error|escape }}
                         </div>
-                        <div class="form-group">
-                          <label for="id_password">Password</label>
-                          {{ form.password }}
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                        </form>
+                    {% endfor %}
+                {% endif %}
+                
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="id_username" class="form-label">
+                            <i class="fas fa-user" style="margin-right: 0.5rem; color: #2563eb;"></i>
+                            Username
+                        </label>
+                        {{ form.username }}
                     </div>
-                    <div class="card-footer bg-white">
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url 'workshop_app:register' %}">New here? Sign up</a>
-                            <a href="{% url 'password_reset' %}">Forgot password?</a>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="id_password" class="form-label">
+                            <i class="fas fa-lock" style="margin-right: 0.5rem; color: #2563eb;"></i>
+                            Password
+                        </label>
+                        {{ form.password }}
                     </div>
+                    
+                    <button type="submit" class="btn-login">
+                        <i class="fas fa-sign-in-alt" style="margin-right: 0.5rem;"></i>
+                        Sign In
+                    </button>
+                </form>
+            </div>
+            
+            <div class="login-footer">
+                <p class="signup-text">Don't have an account?</p>
+                <div class="footer-links">
+                    <a href="{% url 'workshop_app:register' %}" class="footer-link">
+                        <i class="fas fa-user-plus" style="margin-right: 0.3rem;"></i>
+                        Create Account
+                    </a>
+                    <span style="color: #d1d5db;">•</span>
+                    <a href="{% url 'password_reset' %}" class="footer-link">
+                        <i class="fas fa-key" style="margin-right: 0.3rem;"></i>
+                        Forgot Password?
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 {% endblock %}
