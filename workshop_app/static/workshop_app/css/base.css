@@ -210,7 +210,7 @@ body::before {
     radial-gradient(circle at 70% 10%, rgba(251, 191, 36, 0.18) 0%, transparent 45%);
   pointer-events: none;
   z-index: -1;
-  animation: float 25s ease-in-out infinite;
+  animation: gentleFloat 50s ease-in-out infinite;
   background-attachment: fixed;
 }
 
@@ -227,14 +227,18 @@ body::after {
     linear-gradient(0deg, transparent 0%, rgba(251, 191, 36, 0.2) 25%, rgba(251, 191, 36, 0.2) 28%, transparent 50%, rgba(251, 191, 36, 0.2) 72%, rgba(251, 191, 36, 0.2) 75%, transparent 100%) 0 0 / 12px 100% repeat-x;
   pointer-events: none;
   z-index: -1;
-  animation: float 35s ease-in-out infinite reverse;
   background-attachment: fixed;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-15px) rotate(120deg); }
-  66% { transform: translateY(15px) rotate(240deg); }
+  0%, 100% { transform: translateY(0px); }
+  33% { transform: translateY(-8px); }
+  66% { transform: translateY(8px); }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
 }
 
 @keyframes goldenGlow {
