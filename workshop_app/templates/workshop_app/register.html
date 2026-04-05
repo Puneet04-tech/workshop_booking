@@ -117,7 +117,19 @@
     margin-left: 0.3rem;
 }
 
-.form-control {
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="select"],
+input[type="time"],
+input[type="url"],
+select,
+textarea {
     width: 100%;
     padding: 1rem 1.2rem;
     border: 2px solid #e2e8f0;
@@ -130,11 +142,28 @@
     font-weight: 500;
 }
 
-.form-control::placeholder {
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
     color: #a0aec0;
 }
 
-.form-control:focus {
+.form-control:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="url"]:focus,
+select:focus,
+textarea:focus {
     border-color: #fbbf24;
     background: #fff;
     box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2), inset 0 0 10px rgba(251, 191, 36, 0.1), 0 0 15px rgba(251, 191, 36, 0.3);
@@ -142,7 +171,10 @@
     transform: translateY(-2px);
 }
 
-.form-control.is-invalid {
+.form-control.is-invalid,
+input.is-invalid,
+textarea.is-invalid,
+select.is-invalid {
     border-color: #dc2626;
     background: #fef2f2;
 }
@@ -336,10 +368,8 @@
                                     <div class="form-control-wrapper {% if field.errors %}error{% endif %}">
                                         {% if field.field.widget.input_type == "checkbox" %}
                                             {{ field }}
-                                        {% elif field.field.widget.input_type == "textarea" %}
-                                            {{ field|add_class:"form-control" }}
                                         {% else %}
-                                            {{ field|add_class:"form-control" }}
+                                            {{ field }}
                                         {% endif %}
 
                                         {% if field.errors %}
