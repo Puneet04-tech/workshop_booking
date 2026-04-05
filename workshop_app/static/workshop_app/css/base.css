@@ -539,25 +539,84 @@ nav.modern-navbar:hover {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23fbbf24' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* Responsive Navbar */
-@media (max-width: 991px) {
+/* Responsive Navbar - Tablet (768px - 991px) */
+@media (max-width: 991px) and (min-width: 769px) {
   .navbar-container {
-    height: auto !important;
-    padding: 0.75rem 1rem !important;
-  }
-  
-  .navbar-brand-wrapper {
-    margin-right: 1rem !important;
+    padding: 0.65rem 1rem !important;
+    height: 68px !important;
   }
   
   .brand-text {
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
   }
   
+  .brand-subtext {
+    font-size: 0.58rem !important;
+  }
+  
+  .nav-link span {
+    display: inline-block !important;
+  }
+  
+  .nav-link {
+    font-size: 0.88rem !important;
+    padding: 0.55rem 0.75rem !important;
+  }
+  
+  .fossee-logo {
+    max-width: 120px !important;
+    height: 40px !important;
+  }
+  
+  .navbar-brand-wrapper {
+    margin-right: 1.2rem !important;
+  }
+}
+
+/* Responsive Navbar - Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 66px;
+    font-size: 15px;
+  }
+
+  nav.navbar,
+  nav.modern-navbar {
+    position: fixed !important;
+  }
+
+  .navbar-container {
+    flex-wrap: wrap !important;
+    padding: 0.5rem 0.75rem !important;
+    height: auto !important;
+    gap: 0.5rem !important;
+  }
+  
+  .navbar-brand-wrapper {
+    margin-right: 0 !important;
+    flex-basis: auto !important;
+    order: 1;
+  }
+  
+  .brand-text {
+    font-size: 1rem !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .brand-subtext {
+    font-size: 0.52rem !important;
+  }
+
   .navbar-collapse {
-    flex-direction: column !important;
-    align-items: stretch !important;
+    width: 100% !important;
+    flex-basis: 100% !important;
     margin-left: 0 !important;
+    order: 3;
+    display: none !important;
+  }
+
+  .navbar-collapse.show {
+    display: flex !important;
   }
   
   .navbar-nav {
@@ -572,13 +631,19 @@ nav.modern-navbar:hover {
     width: 100% !important;
     flex-direction: column !important;
     margin: 0 !important;
+    gap: 0 !important;
   }
   
   .nav-link {
-    width: 100% !important;
-    border-radius: 0 !important;
-    padding: 0.7rem 1rem !important;
-    justify-content: flex-start !important;
+    padding: 0.65rem 0.8rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 4px !important;
+    margin: 0.2rem 0 !important;
+  }
+  
+  .nav-link span {
+    display: inline-block !important;
+    margin-left: 0.3rem !important;
   }
   
   .nav-link::after {
@@ -586,45 +651,29 @@ nav.modern-navbar:hover {
   }
   
   .fossee-logo-item {
-    width: 100% !important;
     border: none !important;
-    padding: 1rem 0 !important;
-    margin: 0.5rem 0 !important;
+    padding: 0.5rem 0 !important;
+    margin: 0 !important;
+  }
+  
+  .fossee-logo {
+    max-width: 100px !important;
+    height: 35px !important;
   }
   
   .user-profile {
-    width: 100% !important;
-    justify-content: flex-start !important;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    padding-top: 70px;
-    font-size: 15px;
+    width: auto !important;
+    justify-content: center !important;
+    order: 2;
+    padding: 0.5rem 0.8rem !important;
+    margin-left: auto !important;
   }
 
-  .navbar-container {
-    padding: 0.75rem 1rem !important;
-    height: 65px !important;
-  }
-  
-  .brand-text {
-    font-size: 1.1rem !important;
-  }
-  
-  .brand-subtext {
-    font-size: 0.55rem !important;
-  }
-  
-  .nav-link span {
-    display: inline-block !important;
-    margin-left: 0.25rem;
-  }
-  
-  .nav-link {
-    padding: 0.5rem 0.7rem !important;
-    font-size: 0.85rem !important;
+  .navbar-toggler {
+    order: 2.5;
+    border: 2px solid #fbbf24 !important;
+    padding: 0.35rem 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
   
   .card {
@@ -643,29 +692,39 @@ nav.modern-navbar:hover {
   }
 }
 
+/* Responsive Navbar - Small Mobile (max-width: 600px) */
 @media (max-width: 600px) {
   html {
     font-size: 14px;
   }
 
   body {
-    padding-top: 65px;
+    padding-top: 62px;
     background-attachment: scroll;
   }
   
   .navbar-container {
-    padding: 0.6rem 0.75rem !important;
-    height: 60px !important;
+    padding: 0.45rem 0.6rem !important;
+    height: auto !important;
+    min-height: 56px !important;
   }
   
   .brand-text {
-    font-size: 0.95rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.5px !important;
   }
   
   .brand-subtext {
-    font-size: 0.5rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0.45rem !important;
+    letter-spacing: 0.5px !important;
+  }
+  
+  .navbar-brand {
+    padding: 0.3rem 0.4rem !important;
+  }
+  
+  .navbar-brand-wrapper {
+    margin-right: 0 !important;
   }
   
   .nav-link span {
@@ -673,22 +732,30 @@ nav.modern-navbar:hover {
   }
   
   .nav-link {
-    padding: 0.5rem 0.5rem !important;
+    padding: 0.6rem 0.7rem !important;
     font-size: 0.8rem !important;
   }
 
   .nav-link i {
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
   }
 
-  .navbar-brand {
-    padding: 0.3rem 0.5rem !important;
+  .user-profile {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .user-name {
+    display: none !important;
+  }
+
+  .fossee-logo-item {
+    display: none !important;
   }
 
   .card {
     margin: 0.5rem 0 !important;
     padding: 0.75rem !important;
-    border-radius: 8px !important;
   }
 
   .btn {
@@ -700,7 +767,6 @@ nav.modern-navbar:hover {
   .form-control {
     padding: 0.6rem 0.5rem !important;
     font-size: 0.85rem !important;
-    border-radius: 6px !important;
   }
 
   .form-label {
@@ -709,11 +775,11 @@ nav.modern-navbar:hover {
   }
 
   .container {
-    padding: 0 0.75rem !important;
+    padding: 0 0.6rem !important;
   }
 
   .base-content {
-    padding: 1rem 0.5rem !important;
+    padding: 0.8rem 0.5rem !important;
   }
 }
 
@@ -1993,85 +2059,53 @@ a:focus {
   }
 }
 
-@media (max-width: 576px) {
-  :root {
-    --spacing-xl: 1.5rem;
-    --spacing-xxl: 2rem;
-  }
-  
-  .navbar-brand {
-    font-size: 1.25rem;
-  }
-  
-  h1 {
-    font-size: 1.75rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
 
-  h3 {
-    font-size: 1.25rem;
-  }
 
-  .base-content {
-    padding: 1rem 0.75rem !important;
-  }
-
-  .card-body {
-    padding: 0.75rem !important;
-  }
-
-  .btn {
-    padding: 0.6rem 1rem !important;
-    font-size: 0.9rem !important;
-  }
-
-  .form-control {
-    font-size: 0.9rem !important;
-    padding: 0.7rem 0.6rem !important;
-  }
-
-  .form-label {
-    font-size: 0.85rem !important;
-  }
-
-  .container,
-  .container-fluid {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-  }
-}
-
+/* Responsive Navbar - Extra Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
   html {
     font-size: 13px;
   }
 
   body {
-    padding-top: 60px;
+    padding-top: 58px;
   }
 
   .navbar-container {
-    padding: 0.5rem 0.5rem !important;
-    height: 56px !important;
+    padding: 0.4rem 0.5rem !important;
+    min-height: 54px !important;
   }
 
   .brand-text {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.3px !important;
   }
 
   .brand-subtext {
-    font-size: 0.45rem !important;
+    font-size: 0.4rem !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  .navbar-brand {
+    padding: 0.2rem 0.3rem !important;
   }
 
   .nav-link {
-    padding: 0.4rem 0.4rem !important;
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.75rem !important;
   }
 
   .nav-link i {
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .user-profile {
+    padding: 0.35rem 0.5rem !important;
+  }
+
+  .navbar-toggler {
+    padding: 0.3rem 0.4rem !important;
+    margin-left: 0.25rem !important;
   }
 
   h1 {
@@ -2097,12 +2131,12 @@ a:focus {
   }
 
   .card {
-    margin: 0.3rem 0 !important;
-    padding: 0.6rem !important;
+    margin: 0.35rem 0 !important;
+    padding: 0.65rem !important;
   }
 
   .base-content {
-    padding: 0.75rem 0.5rem !important;
+    padding: 0.7rem 0.45rem !important;
   }
 
   .container,
