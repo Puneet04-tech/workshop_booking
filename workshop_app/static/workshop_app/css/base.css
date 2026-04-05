@@ -599,6 +599,7 @@ nav.modern-navbar:hover {
     margin: 0 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3) !important;
   }
 
   .navbar-container {
@@ -620,14 +621,21 @@ nav.modern-navbar:hover {
   }
 
   .navbar-brand {
-    padding: 0.3rem !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
+    width: 48px !important;
+    height: 48px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-direction: column !important;
+    padding: 0.3rem !important;
+    border-radius: 50% !important;
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  }
+
+  .navbar-brand:hover {
+    background: rgba(251, 191, 36, 0.25) !important;
+    border-color: #fbbf24 !important;
   }
 
   .brand-text {
@@ -708,15 +716,32 @@ nav.modern-navbar:hover {
 
   .fossee-logo-item {
     border: none !important;
-    padding: 0 !important;
-    margin: 1rem 0 !important;
+    padding: 0.8rem 0 !important;
+    margin: 0.8rem 0 !important;
     width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .fossee-logo {
-    max-width: 50px !important;
-    height: 50px !important;
-    border-radius: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    object-fit: contain !important;
+    padding: 0.5rem !important;
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: block !important;
+  }
+
+  .fossee-logo:hover {
+    background: rgba(251, 191, 36, 0.25) !important;
+    border-color: #fbbf24 !important;
+    transform: scale(1.1) rotate(10deg) !important;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.4) !important;
   }
 
   .user-profile {
@@ -797,10 +822,27 @@ nav.modern-navbar:hover {
   .navbar-brand {
     width: 48px !important;
     height: 48px !important;
+    border-radius: 50% !important;
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
   }
 
   .navbar-brand i {
     font-size: 1.8rem !important;
+  }
+
+  .fossee-logo-item {
+    padding: 0.8rem 0 !important;
+    margin: 0.8rem 0 !important;
+  }
+
+  .fossee-logo {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
+    padding: 0.5rem !important;
   }
 
   .nav-link {
@@ -2157,10 +2199,27 @@ a:focus {
     width: 45px !important;
     height: 45px !important;
     margin-bottom: 0.8rem !important;
+    border-radius: 50% !important;
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
   }
 
   .navbar-brand i {
     font-size: 1.6rem !important;
+  }
+
+  .fossee-logo-item {
+    padding: 0.7rem 0 !important;
+    margin: 0.7rem 0 !important;
+  }
+
+  .fossee-logo {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
+    padding: 0.4rem !important;
   }
 
   .nav-link {
