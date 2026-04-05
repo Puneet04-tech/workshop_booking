@@ -62,31 +62,33 @@
                     </button>
                 </div>
             </div>
-            <table class="table table-responsive-sm">
-                <thead>
-                    <tr>
-                        <th>Sr No.</th>
-                        <th>Coordinator Name</th>
-                        <th>Institute Name</th>
-                        <th>Instructor Name</th>
-                        <th>Workshop Name</th>
-                        <th>Workshop Date</th>
-                    </tr>
-                </thead>
-                {% csrf_token %}
-                {% for workshop in objects %}
-                    <tbody>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ forloop.counter0|add:objects.start_index}}</td>
-                            <td>{{ workshop.coordinator.get_full_name | capfirst }}</td>
-                            <td>{{ workshop.coordinator.profile.institute | capfirst }}</td>
-                            <td>{{ workshop.instructor.get_full_name | capfirst }}</td>
-                            <td>{{ workshop.workshop_type.name }}</td>
-                            <td>{{ workshop.date | date}}</td>
+                            <th>Sr No.</th>
+                            <th>Coordinator Name</th>
+                            <th>Institute Name</th>
+                            <th>Instructor Name</th>
+                            <th>Workshop Name</th>
+                            <th>Workshop Date</th>
                         </tr>
-                    </tbody>
-                {% endfor %}
-            </table>
+                    </thead>
+                    {% csrf_token %}
+                    {% for workshop in objects %}
+                        <tbody>
+                            <tr>
+                                <td>{{ forloop.counter0|add:objects.start_index}}</td>
+                                <td>{{ workshop.coordinator.get_full_name | capfirst }}</td>
+                                <td>{{ workshop.coordinator.profile.institute | capfirst }}</td>
+                                <td>{{ workshop.instructor.get_full_name | capfirst }}</td>
+                                <td>{{ workshop.workshop_type.name }}</td>
+                                <td>{{ workshop.date | date}}</td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
             {% include "statistics_app/paginator.html" %}
         </div>
     </div>

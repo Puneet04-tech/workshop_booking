@@ -115,44 +115,46 @@
 
 	</div>
 	<br>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Coordinator Name</th>
-					<th>Institute Name</th>
-					<th>Instructor Name</th>
-					<th>Workshop Name</th>
-					<th>Workshop Date</th>
-					<th>Requested/Proposed By</th>
-				</tr>
-			</thead>
-			{% csrf_token %}
-			{% for workshop in upcoming_workshops %}
-				{% if workshop.proposed_workshop_date %}
-						<tbody>
-							<tr>
-							<td>{{ workshop.proposed_workshop_coordinator.get_full_name | capfirst }}</td>
-							<td>{{ workshop.proposed_workshop_coordinator.profile.institute | capfirst }}</td>
-							<td>{{ workshop.proposed_workshop_instructor.get_full_name }}</td>
-							<td>{{ workshop.proposed_workshop_title.workshoptype_name }}</td>
-							<td>{{ workshop.proposed_workshop_date | date}}</td>
-							<td>Coordinator</td>
-							</tr>
-						</tbody>
-				{% else %}
-						<tbody>
-							<tr>
-							<td>{{ workshop.requested_workshop_coordinator.get_full_name | capfirst }}</td>
-							<td>{{ workshop.requested_workshop_coordinator.profile.institute | capfirst }}</td>
-							<td>{{ workshop.requested_workshop_instructor.get_full_name }}</td>
-							<td>{{ workshop.requested_workshop_title.workshoptype_name }}</td>
-							<td>{{ workshop.requested_workshop_date | date}}</td>
-							<td>Instructor</td>
-							</tr>
-						</tbody>
-				{% endif %}
-			{% endfor %}
-		</table>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Coordinator Name</th>
+						<th>Institute Name</th>
+						<th>Instructor Name</th>
+						<th>Workshop Name</th>
+						<th>Workshop Date</th>
+						<th>Requested/Proposed By</th>
+					</tr>
+				</thead>
+				{% csrf_token %}
+				{% for workshop in upcoming_workshops %}
+					{% if workshop.proposed_workshop_date %}
+							<tbody>
+								<tr>
+								<td>{{ workshop.proposed_workshop_coordinator.get_full_name | capfirst }}</td>
+								<td>{{ workshop.proposed_workshop_coordinator.profile.institute | capfirst }}</td>
+								<td>{{ workshop.proposed_workshop_instructor.get_full_name }}</td>
+								<td>{{ workshop.proposed_workshop_title.workshoptype_name }}</td>
+								<td>{{ workshop.proposed_workshop_date | date}}</td>
+								<td>Coordinator</td>
+								</tr>
+							</tbody>
+					{% else %}
+							<tbody>
+								<tr>
+								<td>{{ workshop.requested_workshop_coordinator.get_full_name | capfirst }}</td>
+								<td>{{ workshop.requested_workshop_coordinator.profile.institute | capfirst }}</td>
+								<td>{{ workshop.requested_workshop_instructor.get_full_name }}</td>
+								<td>{{ workshop.requested_workshop_title.workshoptype_name }}</td>
+								<td>{{ workshop.requested_workshop_date | date}}</td>
+								<td>Instructor</td>
+								</tr>
+							</tbody>
+					{% endif %}
+				{% endfor %}
+			</table>
+		</div>
 		<!-- Page Navigation -->
 		<div class="container">
 		<div class="Page-Nav" align="center">

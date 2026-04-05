@@ -1113,6 +1113,55 @@ nav.modern-navbar:hover {
   .base-content {
     padding: 0.8rem 0.5rem !important;
   }
+
+  .container {
+    padding: 0 0.5rem !important;
+  }
+
+  .container-fluid {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .table {
+    width: 100% !important;
+    font-size: 0.8rem !important;
+    display: table !important;
+    overflow-x: auto !important;
+  }
+
+  .table thead th {
+    padding: 0.6rem 0.4rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+
+  .table tbody td {
+    padding: 0.6rem 0.4rem !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+
+  .table-responsive {
+    overflow-x: auto !important;
+    width: calc(100vw - 65px) !important;
+    margin-left: -0.5rem !important;
+    margin-right: -0.5rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-responsive::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb {
+    background: rgba(251, 191, 36, 0.6);
+    border-radius: 3px;
+  }
 }
 
 /* Content Area Styling */
@@ -1329,6 +1378,30 @@ nav.modern-navbar:hover {
 .table {
   background: rgba(255, 255, 255, 0.95);
   border-collapse: collapse;
+  width: 100%;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.5);
+  border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24;
 }
 
 .table thead th {
@@ -1337,6 +1410,7 @@ nav.modern-navbar:hover {
   border: none;
   font-weight: 700;
   padding: 1rem;
+  white-space: nowrap;
 }
 
 .table tbody tr {
@@ -1351,6 +1425,7 @@ nav.modern-navbar:hover {
 .table tbody td {
   padding: 1rem;
   color: #1e293b;
+  white-space: nowrap;
 }
 
 /* Alert Styling */
@@ -2557,6 +2632,35 @@ a:focus {
   .container-fluid {
     padding-left: 0.4rem !important;
     padding-right: 0.4rem !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .table {
+    width: 100% !important;
+    font-size: 0.75rem !important;
+    display: table !important;
+  }
+
+  .table thead th {
+    padding: 0.5rem 0.3rem !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  .table tbody td {
+    padding: 0.5rem 0.3rem !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+  }
+
+  .table-responsive {
+    overflow-x: auto !important;
+    width: calc(100vw - 70px) !important;
+    margin-left: -0.4rem !important;
+    margin-right: -0.4rem !important;
+    -webkit-overflow-scrolling: touch;
   }
 }
   }
