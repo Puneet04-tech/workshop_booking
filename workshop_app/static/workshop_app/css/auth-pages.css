@@ -124,16 +124,61 @@
     box-shadow: 0 2px 6px rgba(251, 191, 36, 0.04);
 }
 
-.form-control::placeholder {
+/* Target Django form input fields directly */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.98);
+    color: #1a1f2e;
+    font-family: inherit;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(251, 191, 36, 0.04);
+}
+
+.form-control::placeholder,
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder,
+input[type="url"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
     color: #a0aec0;
 }
 
-.form-control:hover {
+.form-control:hover,
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+input[type="url"]:hover,
+input[type="tel"]:hover,
+select:hover,
+textarea:hover {
     border-color: rgba(251, 191, 36, 0.6);
     box-shadow: 0 6px 16px rgba(251, 191, 36, 0.12);
 }
 
-.form-control:focus {
+.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
     border-color: #fbbf24;
     background: #fff;
     box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2), inset 0 0 0 1px rgba(251, 191, 36, 0.1);

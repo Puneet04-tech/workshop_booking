@@ -43,9 +43,9 @@
                                         {% if field.field.widget.input_type == '\''checkbox'\'' %}
                                             {{ field }}
                                         {% elif field.field.widget.input_type == '\''textarea'\'' %}
-                                            {{ field|add_class:"form-control" }}
+                                            {{ field }}
                                         {% else %}
-                                            {{ field|add_class:"form-control" }}
+                                            {{ field }}
                                         {% endif %}
 
                                         {% if field.errors %}
