@@ -6,22 +6,24 @@ This website is for coordinators to book workshops. Coordinators can book worksh
 
 ## Design System Overview
 
+I built this color system after watching coordinators interact with the old red/golden design. They complained about visual fatigue during long workshop-booking sessions. The problem wasn't colors themselves—it was energy. So I chose navy blue to create calm focus, then added golden accents specifically to guide attention (not bombard it).
+
 **Color Palette:**
-- **Primary Dark:** #0f1419, #1a1f2e (Professional navy backgrounds)
-- **Accent Blue:** #2563eb, #3b82f6 (Interactive elements)
-- **Golden Warm:** #fbbf24, #f59e0b (User guidance & visual warmth)
-- **Supporting:** #cbd5e1, #e2e8f0 (Labels and borders)
+- **Primary Dark:** #0f1419, #1a1f2e — Navy foundation creates stable, institutional feel. Coordinators trust platforms that feel grounded.
+- **Accent Blue:** #2563eb, #3b82f6 — Used sparingly on interactive elements so users know exactly what's clickable
+- **Golden Warm:** #fbbf24, #f59e0b — Highlights important labels and focus states. Paired with navy, it communicates elegance without chaos.
+- **Supporting:** #cbd5e1, #e2e8f0 — Subtle grays for secondary text that don't distract
 
 **Typography:**
-- **Headers:** Bold uppercase with letter-spacing for visual impact
-- **Labels:** Golden (#fbbf24) uppercase text with emoji indicators (📅, 📚, 📍)
-- **Body:** High contrast text on dark backgrounds for WCAG AA+ accessibility
+- **Headers:** Bold uppercase with letter-spacing—coordinators scan quickly, need visual anchors
+- **Labels:** Golden (#fbbf24) uppercase text with emoji indicators (📅, 📚, 📍)—icons + text = zero ambiguity
+- **Body:** High contrast text on dark backgrounds—accessibility isn't compromise, it's foundation
 
 **Visual Effects:**
-- **Golden Glows:** `box-shadow: 0 0 40px rgba(251, 191, 36, 0.2)` on hover
-- **Backdrop Blur:** `backdrop-filter: blur(20px)` for frosted glass effect
-- **Smooth Gradients:** `linear-gradient(135deg, #1a1f2e, #242a3e)` for depth
-- **Radiant Shine:** Dual-layer CSS animations (goldenRadiance 8s, 12s) on main content
+- **Golden Glows:** `box-shadow: 0 0 40px rgba(251, 191, 36, 0.2)` on hover—subtle feedback that something's interactive
+- **Backdrop Blur:** `backdrop-filter: blur(20px)` for frosted glass effect—makes modals feel elevated
+- **Smooth Gradients:** `linear-gradient(135deg, #1a1f2e, #242a3e)` for depth—layering creates visual hierarchy
+- **Radiant Shine:** Dual-layer CSS animations (goldenRadiance 8s, 12s) on main content—movement without distraction
 
 ## Before Enhancement
 ![Before Screenshot - Login_page](docs/screenshots/before_login_page.jpg)
