@@ -1,8 +1,8 @@
 
 
 /* CSS Custom Properties for Workshop Booking Platform Theme
-   This system centrally manages colors across login, registration, and stats pages.
-   All interactive elements reference these variables—change one, update everywhere. */
+   Centralized color and spacing system for consistent UI design.
+   All components reference these variables for unified theming. */
 :root {
   /* Primary Color Palette - FOSSEE Workshop Institutional Trust
      Navy base (#0f1419) was chosen after user testing showed fatigue from old red/golden.
