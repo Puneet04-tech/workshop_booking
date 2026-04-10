@@ -134,7 +134,7 @@ select {
     color: #ffffff !important;
     font-family: inherit;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+   height: 3.7rem;
     position: relative;
     z-index: 10;
 }
@@ -293,15 +293,32 @@ input[type="checkbox"] {
                         </div>
                         <div class="filter-group">
                             <label class="filter-label"><span class="filter-label-icon">📚</span>Workshop:</label>
-                            {{form.workshop_type}}
+                            <select name="workshop_type" class="form-control">
+                                <option value="">-- Select Workshop --</option>
+                                {% for workshop in form.workshop_type.field.queryset %}
+                                    <option value="{{ workshop.id }}" {% if form.workshop_type.value == workshop.id %}selected{% endif %}>{{ workshop.title }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="filter-group">
                             <label class="filter-label"><span class="filter-label-icon">📍</span>State:</label>
-                            {{form.state}}
+                            <select name="state" class="form-control">
+                                <option value="">-- Select State --</option>
+                                {% for value, label in form.state.field.choices %}
+                                    {% if value %}
+                                        <option value="{{ value }}" {% if form.state.value == value %}selected{% endif %}>{{ label }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="filter-group">
-                            <label class="filter-label"><span class="filter-label-icon">↕️</span>{{form.sort.help_text}}:</label>
-                            {{form.sort}}
+                            <label class="filter-label"><span class="filter-label-icon">↕️</span>Sort By:</label>
+                            <select name="sort" class="form-control">
+                                <option value="">-- Sort By --</option>
+                                {% for value, label in form.sort.field.choices %}
+                                    <option value="{{ value }}" {% if form.sort.value == value %}selected{% endif %}>{{ label }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         {% if request.user.is_authenticated %}
                         <div class="filter-group filter-checkbox-group">
