@@ -123,6 +123,7 @@
 /* Date Input Styling */
 .filter-input-date,
 .filter-select,
+.form-control,
 input[type="date"],
 select {
     width: 100%;
@@ -140,12 +141,14 @@ select {
 }
 
 .filter-input-date::placeholder,
-input[type="date"]::placeholder {
+input[type="date"]::placeholder,
+.form-control::placeholder {
     color: rgba(226, 232, 240, 0.5);
 }
 
 .filter-input-date:focus,
 .filter-select:focus,
+.form-control:focus,
 input[type="date"]:focus,
 select:focus {
     border-color: #fbbf24;
@@ -155,8 +158,10 @@ select:focus {
 }
 
 .filter-select,
+select.form-control,
 select {
     cursor: pointer;
+    appearance: auto !important;
 }
 
 /* Checkbox Styling */
