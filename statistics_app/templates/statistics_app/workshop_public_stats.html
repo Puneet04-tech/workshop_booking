@@ -128,39 +128,31 @@ input[type="date"],
 select {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 2px solid rgba(251, 191, 36, 0.2) !important;
+    border: 2px solid rgba(251, 191, 36, 0.3) !important;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #f0f4f8 !important;
+    background: #2a3040 !important;
+    color: #ffffff !important;
     font-family: inherit;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
     position: relative;
     z-index: 10;
-    box-shadow: none !important;
 }
 
-.form-control {
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #f0f4f8 !important;
-    border: 2px solid rgba(251, 191, 36, 0.2) !important;
+select {
+    background-color: #2a3040 !important;
+    color: #ffffff !important;
 }
 
-select.form-control {
-    appearance: auto !important;
-    background-image: none !important;
+select option {
+    background: #1a1f2e;
+    color: #ffffff;
 }
 
 .filter-input-date::placeholder,
 input[type="date"]::placeholder,
 .form-control::placeholder {
-    color: rgba(226, 232, 240, 0.7);
-}
-
-select option {
-    background: #1a1f2e;
-    color: #f0f4f8;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .filter-input-date:focus,
@@ -169,16 +161,16 @@ select option {
 input[type="date"]:focus,
 select:focus {
     border-color: #fbbf24 !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2), inset 0 0 8px rgba(251, 191, 36, 0.1) !important;
+    background: #383f50 !important;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3) !important;
     outline: none;
+    color: #ffffff !important;
 }
 
 .filter-select,
 select.form-control,
 select {
     cursor: pointer;
-    appearance: auto !important;
 }
 
 /* Checkbox Styling */
