@@ -34,11 +34,7 @@ Think of it like a professional office: calm walls with nice touches of color to
 ## After Enhancement (Professional Blue/Golden Design)
 
 ![After Screenshot - Login Page ](docs/screenshots/after_login_page.jpg)
-![After Screenshot - Enhanced Statistics Filter](docs/screenshots/after_filter-page.jpg)
-![After Screenshot - Registration_page_1](docs/screenshots/after_registration_form_1.jpg)
-![After Screenshot - Registration_page_2](docs/screenshots/after_registration_page_2.jpg)
-![After Screenshot - footer-1](docs/screenshots/after-footer-1.jpg)
-![After Screenshot - footer-2](docs/screenshots/after-footer_2.jpg)
+
 
 ## 2026 Enhancement Showcase - Modern UI Improvements
 
