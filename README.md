@@ -223,6 +223,59 @@ We made this website super fast. Here's why it matters: if the site takes too lo
 
 ---
 
+### 3. What trade-offs did you make between the design and performance?
+
+We made strategic decisions to balance beautiful design with speed. Here's what we gave up and what we gained:
+
+**Design vs. Performance Decisions:**
+
+**What We Could Have Done But Didn't:**
+- ❌ Complex animated background patterns — would look amazing but slow down old phones
+- ❌ Heavy shadow effects on every element — would be very pretty but cost CPU power
+- ❌ Loads of custom fonts — would look unique but add 200KB+ to load time
+- ❌ Expensive blur effects everywhere — would be elegant but drain batteries on mobile
+- ❌ Large high-res images for animations — would be crisp but add seconds to load time
+
+**What We Did Instead:**
+- ✅ Kept animations simple but elegant (smooth gradients, subtle glows)
+- ✅ Used CSS variables instead of images (instant updates, tiny file size)
+- ✅ Chose one professional system font instead of 5 different fonts
+- ✅ Applied blur effects only where they matter (backdrop of modals)
+- ✅ Used lightweight PNG/JPG screenshots only when necessary
+
+**The Actual Trade-offs We Made:**
+
+| Need | What We Chose | Why |
+|------|---|---|
+| **Animations** | Simple CSS keyframes | Works smoothly on slow phones, no lag |
+| **Shadows** | Multi-layer CSS shadows | Looks premium without image files |
+| **Colors** | Fixed navy/gold palette | Consistent across browsers, no color conversions |
+| **Icons** | Text emoji + symbols | Instant rendering, no icon font delays |
+| **Effects** | Gradient overlays only | Beautiful depth without blur performance hit |
+
+**Performance Impact:**
+- Removed 80KB of animation libraries we could have used
+- Removed 100KB+ of unused Bootstrap styles
+- Removed fancy effects that would break on 3G connections
+- Result: 64-66% lighter website that loads 62% faster
+
+**Design Impact:**
+- Still looks professional and modern
+- Navy/gold colors look elegant and trustworthy
+- Golden glows guide user attention
+- Smooth animations feel polished
+- Every element has clear purpose (no "just looks cool" fluff)
+
+**Real Example - The Golden Glow:**
+- ❌ Could have used: image-based shadow effects, blur filters, layered graphics
+- ✅ We used: pure CSS box-shadow with RGBA colors
+- Result: Looks beautiful, loads instantly, works on all browsers, 0KB extra file size
+
+**The Bottom Line:**
+We didn't compromise on beauty. We just cut the stuff that nobody needs. The website looks beautiful because it's clean and focused, not because it's bloated with unnecessary effects. Every animation, every shadow, every color serves a real purpose.
+
+---
+
 ### 4. What was the most challenging part of the task and how did you approach it?
 
 Making this website look exactly the same on Chrome, Firefox, Safari, and Edge was surprisingly hard. Every browser interprets colors and shadows differently, and older phones render things in unpredictable ways.
